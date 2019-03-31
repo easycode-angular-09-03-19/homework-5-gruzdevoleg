@@ -1,0 +1,7 @@
+
+<section id="message" class="message__section" [ngSwitch]="resultMessage">
+  <div class="alert alert-success" *ngSwitchCase="'Альбом успешно добавлен'">{{ resultMessage }}</div>
+  <div class="alert alert-success" *ngSwitchCase="'Альбом успешно удален'">{{ resultMessage }}</div>
+  <div class="alert alert-success" *ngSwitchCase="'Альбом успешно отредактирован'">{{ resultMessage }}</div>
+  <div *ngSwitchDefault></div>
+</section>
