@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col col-8 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add new album</h5>
+          <!-- #addAlbumForm="ngForm" - в объекте ngForm хранится текущее состояние формы -->
+          <!-- (ngSubmit)="onFormSubmit()" - повесили обработчик onFormSubmit() из компоненты на событие Submit -->
+           <!-- (ngSubmit)="onFormSubmit(#addAlbumForm)" - если в обработчик onFormSubmit() прокинем локальную переменную #addAlbumForm, в которой ссылка на объект с состоянием формы, то в компоненте в обработчике будет доступ к этому объекту ngForm-->
+          <form (ngSubmit)="onFormSubmit()" #addAlbumForm="ngForm">
+            <div class="alert alert-danger" *ngIf="albumTitle.invalid && albumTitle.dirty">Error message</div>
+            <!-- [(ngModel)]="album.title" - 2сторонняя привязка: значение input синхронизировано с 
+             album.title;  в атрибут name присваиваем имя "title" -->
+             <!-- #albumTitle="ngModel" - в объекте ngModel хранится текущее состояние поля input -->
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="album.title"
+                   name="title"
+                   placeholder="Album title"
+                   #albumTitle="ngModel"
+                   required
+                   maxlength="100"
+                   minlength="2"
+            >
+
+            <button id="submit" class="btn btn-success mt-3" [disabled]="albumTitle.invalid">Submit</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

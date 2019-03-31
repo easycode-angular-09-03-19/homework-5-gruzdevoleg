@@ -1,0 +1,8 @@
+.message__section {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 15px;
+	z-index: 10;
+}
+
